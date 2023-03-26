@@ -1,0 +1,19 @@
+number = int(input("请输入想要精确到小数点后的位数"))
+number1 = number+10
+
+a = 10**number1
+x1 = a*4//5
+x2 = a// -239
+sum = x1+x2
+number *= 2
+for i in range(3,number,2):
+    x1 //= -25
+    x2 //= -57121
+    x = (x1+x2) // i
+    sum += x
+pai = sum*4
+pai //= 10**10
+
+paistring = str(pai)
+result = paistring[0]+str('.')+paistring[1:len(paistring)]
+print(result)
