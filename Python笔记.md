@@ -722,6 +722,8 @@ unittest:Python单元测试表达库（自带）：单元测试-->对最小的�
 
 ## 爬虫：
 
+通过网页的robot.txt文件了解可爬取的网页路径范围
+
 第一步：获取网页内容：
 HTTP(Hypertext Transfer Protocol)（超文本传输协议）分为GET方法和POST方法
 
@@ -745,6 +747,31 @@ HTTP响应：状态行；响应头；响应体
 第二步：解析网页内容
 
 第三步：储存或分析内容
+
+代码示例：
+
+`import requests`
+
+#`headers = {"User-Agent": "Mozilla/5.0(Windows NT 10.0; Win64; x64)"}`
+
+上面一行代码可更改GET请求头里的User-Agent
+
+`response = requests.get("http://books.toscrape.com/")`
+
+`if response.ok:`
+
+​	`print(response.text)`
+
+`else:`
+
+​	`print("请求失败")`
+
+可以从bs4里面导入BeautifulSoup进行html的更好理解
+
+`soup = BeautifulSoup(content, "html.parser")`
+
+接着进行检索：
+`all_prices = soup.findAll("p", attrs={"class": "price_color"})`	这是一个可迭代对象	使用`print(all_price.string)`获取文本信息
 
 -------------------------------------------------------------------------------------
 
